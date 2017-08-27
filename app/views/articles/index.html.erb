@@ -1,4 +1,18 @@
-<h1>Articles</h1>
-<% @articles.each do |article| %>
-<%= link_to article.title, article_path(article) %><br>
-<% end %>
+
+<table>
+        <thead>
+          <tr>
+              <th>Articles</th>
+              <th>Comments</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @articles.each do |article| %>
+          <tr>
+            <td><h5> <%= link_to article.title, article_path(article) %> </h5></td>
+            <td><%= article.tags.count %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>

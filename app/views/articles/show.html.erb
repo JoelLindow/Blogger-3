@@ -1,17 +1,30 @@
-<h1><%= @article.title %></h1>
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
+
+<div class="col s12 m2 title z-depth-2">
+  <h4>You are Reading: <%= @article.title %></h4>
+  <div class="article-body">
+    <p class="z-depth-2"><%= @article.body %></p>
+  </div>
+  <button type="button" name="button"><%= link_to "edit", edit_article_path(@article) %></button>
+  <button type="button" name="button">  <%= link_to "delete", article_path(@article), method: :delete %></button><br><br>
+</div>
+<% @article.tags.each do |tag| %>
+<div class="chip">
   <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
+</div>
+<% end %>
 </p>
-<p><%= @article.body %></p>
-<%= link_to "edit", edit_article_path(@article) %><br>
-<%= link_to "delete", article_path(@article), method: :delete %><br>
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: 'articles/comment', collection: @article.comments.reverse %>
+<hr>
+<h5>Comments (<%= @article.comments.size %>)</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th>Posted By</th>
+      <th>Posted At</th>
+    </tr>
+  </thead>
+  <%= render partial: 'articles/comment', collection: @article.comments.reverse %>
+</table>
+<hr>
 <%= render partial: 'comments/form' %>
-
-
-
 <%= link_to "<< Back to Articles List", articles_path %>

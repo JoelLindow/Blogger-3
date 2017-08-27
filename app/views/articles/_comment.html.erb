@@ -1,5 +1,7 @@
-<div>
-  <h5>Comment by <%= comment.author_name %></h5>
-  <p>Posted <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %> later</p>
-  <p class="comment"><%= comment.body %></p>
-</div>
+<tbody>
+  <tr>
+    <td><%= comment.body %></td>
+    <td>Comment by <%= comment.author_name %></td>
+    <td><%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %></td>
+  </tr>
+</tbody>

@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+.blog-icon {
+  margin-left: 10px;
+}
+
+.yield-class {
+  margin-left: 10px;
+}
+
+.title {
+  text-align: center;
+  background-color: grey;
+  color:white;
+  margin-bottom: 10px;
+}
+
+.article-body {
+  margin-left: 3%;
+  margin-right: 3%;
+  background-color: white;
+  color: black;
+}
